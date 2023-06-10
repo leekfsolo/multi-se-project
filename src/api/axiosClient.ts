@@ -3,7 +3,6 @@ import axios, {AxiosError, AxiosResponse, AxiosRequestConfig} from 'axios';
 import queryString from 'query-string';
 import Config from 'configuration';
 import useRefreshToken from 'utils/hooks/useRefreshToken';
-import {PageUrl} from 'configuration/enum';
 
 interface retryAxiosResponseConfig extends AxiosRequestConfig {
   _retry?: boolean;
@@ -13,8 +12,7 @@ interface retryAxiosResponseConfig extends AxiosRequestConfig {
 // Please have a look at here `https://github.com/axios/axios#request- config` for the full list of configs
 const axiosClient = axios.create({
   headers: {
-    'content-type': 'application/json',
-    'X-AIO-Key': 'aio_Gxra91amcvxgAGfh3f9XEHOp0teo'
+    'content-type': 'application/json'
   },
   baseURL: 'https://io.adafruit.com',
   paramsSerializer: (params) => queryString.stringify(params)
@@ -43,6 +41,7 @@ const AxiosInterceptor = ({children}: {children: ReactElement}): ReactElement =>
           config.headers.Authorization = `Bearer ${authValue.accessToken}`;
         }
       }
+
       return config;
     };
 
@@ -59,7 +58,6 @@ const AxiosInterceptor = ({children}: {children: ReactElement}): ReactElement =>
           return axiosClient(retryRequest);
         } else {
           localStorage.clear();
-          window.location.pathname = `${PageUrl.BASEURL}/${PageUrl.LOGIN}`;
         }
       }
 

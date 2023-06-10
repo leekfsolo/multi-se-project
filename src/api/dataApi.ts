@@ -11,11 +11,11 @@ const dataApi = {
   },
   changeLedData: (data: {value: number}) => {
     const url = '/api/v2/harrygooner/feeds/led/data';
-    return axiosClient.post(url, data);
+    return axiosClient.post(url, data, {headers: {'X-AIO-Key': 'aio_SvVG04BTJ4bmlwP6XuF2UKgPghV7'}});
   },
   changePumpData: (data: {value: number}) => {
     const url = '/api/v2/harrygooner/feeds/pump/data';
-    return axiosClient.post(url, data);
+    return axiosClient.post(url, data, {headers: {'X-AIO-Key': 'aio_SvVG04BTJ4bmlwP6XuF2UKgPghV7'}});
   },
   getTemperatureData: () => {
     const url = '/api/v2/harrygooner/feeds/temperature/data';
