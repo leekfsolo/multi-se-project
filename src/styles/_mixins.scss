@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+@mixin for-extra-small {
+  @media (max-width: #{$screen-xxs-max}) {
+    @content;
+  }
+}
+
+@mixin for-mobile-down {
+  @media (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}

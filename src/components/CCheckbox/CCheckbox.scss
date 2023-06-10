@@ -1,0 +1,10 @@
+@use 'styles/index' as *;
+
+.MuiCheckbox-root {
+  &.Mui-checked,
+  &.MuiCheckbox-indeterminate {
+    &.MuiCheckbox-colorPrimary {
+      color: $info-550 !important;
+    }
+  }
+}

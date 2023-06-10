@@ -1,0 +1,27 @@
+@use 'styles/index' as *;
+
+.MuiTableCell-root {
+  .cell-variant {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+    min-width: 50px;
+
+    &__on {
+      background-color: $success-500;
+    }
+
+    &__off {
+      background-color: $danger-500;
+    }
+  }
+
+  svg {
+    cursor: pointer;
+  }
+}
